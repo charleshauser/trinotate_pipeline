@@ -1,5 +1,5 @@
 Bootstrap: docker
-From: trinityrnaseq/trinityrnaseq:2.9.1
+From: trinityrnaseq/trinityrnaseq:2.12.0
 
 %help
     Container for trinotate_pipeline 
@@ -48,7 +48,7 @@ _EOF_
     # install trinotate
     wget \
         -O trinotate.tar.gz \
-        https://github.com/Trinotate/Trinotate/archive/Trinotate-v3.2.0.tar.gz
+        https://github.com/Trinotate/Trinotate/archive/Trinotate-v3.2.2.tar.gz
     mkdir trinotate
     tar -zxf trinotate.tar.gz \
         -C trinotate \
@@ -58,7 +58,8 @@ _EOF_
     # install pipeline
     /usr/bin/pip3 \
         install \
-        git+git://github.com/TomHarrop/trinotate_pipeline.git@v0.0.12
+        git+git://github.com/charleshauser/trinotate_pipeline.git
+
 
 %runscript
     exec /usr/local/bin/trinotate_pipeline "$@"
